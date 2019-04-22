@@ -27,9 +27,52 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/marlin/overlay
 
+#Telephony-ext
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=560
+
+# Camera
+PRODUCT_PACKAGES += \
+    libmm-qcamera
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.1-service.clearkey
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true \
+    media.mediadrmservice.enable=true
+
+# Google Assistant
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.opa.eligible_device=true
+
+# IMS
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    RcsService \
+    PresencePolling
+
+# Sensors
+PRODUCT_PACKAGES += \
+    libsensorndkbridge
+
+# Tool
+PRODUCT_PACKAGES += \
+    libtinyxml
+
+# VR Services
+PRODUCT_PACKAGES += \
+    bufferhubd \
+    performanced \
+    virtual_touchpad \
+    vr_hwc
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
